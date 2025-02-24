@@ -3,7 +3,7 @@ const whatsAppClient = require('@green-api/whatsapp-api-client');
 const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3000;
 
 
 
