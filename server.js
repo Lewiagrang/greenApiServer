@@ -5,7 +5,15 @@ const cors = require("cors");
 const app = express();
 const port = 3000;
 
-app.use(cors());
+// Configure CORS
+const corsOptions = {
+    origin: 'https://greenapi-eb93b.web.app', // Replace with your front-end URL
+    methods: ['GET', 'POST'], // Allowed methods
+    allowedHeaders: ['Content-Type'], // Allowed headers
+    credentials: true // Allow credentials if needed
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 let restAPI;
@@ -14,7 +22,7 @@ app.post('/setCredentials', async (req, res) => {
     const { idInstance, apiTokenInstance } = req.body;
     console.log(req.body);
     
-    // Создаем новый экземпляр REST API
+    // Create a new instance of the REST API
     restAPI = whatsAppClient.restAPI({ idInstance, apiTokenInstance });
     
     console.log(`Credentials set: idInstance=${idInstance}, apiTokenInstance=${apiTokenInstance}`);
@@ -40,7 +48,7 @@ app.get('/notifications', async (req, res) => {
     }
 });
 
-// Запуск сервера
+// Start the server
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
