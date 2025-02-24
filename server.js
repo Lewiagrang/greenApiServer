@@ -3,7 +3,10 @@ const whatsAppClient = require('@green-api/whatsapp-api-client');
 const cors = require("cors");
 
 const app = express();
-const port = 80;
+const PORT = process.env.PORT || 80;
+
+
+
 
 // Configure CORS
 const corsOptions = {
@@ -46,6 +49,6 @@ app.get('/notifications', async (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running at http://0.0.0.0:${PORT}`);
 });
