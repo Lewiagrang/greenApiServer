@@ -7,10 +7,7 @@ const port = 3000;
 
 // Configure CORS
 const corsOptions = {
-    origin: 'https://greenapi-eb93b.web.app', // Replace with your front-end URL
-    methods: ['GET', 'POST'], // Allowed methods
-    allowedHeaders: ['Content-Type'], // Allowed headers
-    credentials: true // Allow credentials if needed
+    origin: '*', // Разрешить все домены
 };
 
 app.use(cors(corsOptions));
