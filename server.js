@@ -3,7 +3,7 @@ const whatsAppClient = require('@green-api/whatsapp-api-client');
 const cors = require("cors");
 
 const app = express();
-const port = 3000;
+const port = 80;
 
 // Configure CORS
 const corsOptions = {
